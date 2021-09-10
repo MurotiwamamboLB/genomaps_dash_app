@@ -73,7 +73,6 @@
   color: rgb(39, 46, 117);
   background: rgb(39, 46, 117, 0.2);
   border-radius: 5px;
-  /*width: 70%;*/
   margin-top: 8%;
   font-size: 15px;
   padding: 2% 5% 2% 5%;
@@ -87,24 +86,11 @@
 
 }
 
-/*logo img {
-  width: 10%;
-  height: 10%;
-}*/
-/*.logo {
-  font-size: 20px;
-  font-weight: bold;
-}*/
+
 
 .generator-buttons {
   float: right;
-  /*width: 100%;
-  margin-top: 1%;
-  margin-bottom: 1%;*/
 
-
-  /*padding: 50px 5px;*/
-  
 }
 
 .map-button {
@@ -126,15 +112,7 @@
 }
 
 
-/*header-text{
-  text-align: center;
-  font-size: 70px;
-  float: right;
-  padding-right: 100px;
-  padding-top: 20px;
-   
-}
-*/
+
 h1 {
   padding-left: 10%;
 }
@@ -218,8 +196,8 @@ body-block {
  font-size: 15px;
 
 }
-
-
+/*########################## download button starts ############################
+*/
 .submit-download-block{
   width: 67%;
   float: left;
@@ -252,11 +230,22 @@ body-block {
 
 }
 
-.download-button:hover, .download-button:active{
-  background-color: #ddd;
+.download-button:hover{
+  background-color: rgb(43,75,111,0.3);
   color: black;
 }
+.download-button:active, .download-button:focus{
+  background-color: rgb(43,75,111);
+  color: white;
+}
 
+
+.hidden-download-button{
+  display: None;
+}
+
+/*########### download button ends #################
+*/
 
 
 

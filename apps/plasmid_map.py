@@ -95,7 +95,7 @@ layout = html.Div(children=[
 
   html.Div([
       # the submit button 
-      html.Button([dcc.Download(id="download-component-plasmid_map"), "Download Maps"], id = "download-button-plasmid_map", className = "download-button", n_clicks = 0, disabled = 'disabled'),
+      html.Button([dcc.Download(id="download-component-plasmid_map"), "Download Maps"], id = "download-button-plasmid_map", n_clicks = 0),
 
       # the download button 
       # html.Button([dcc.Download(id="download-component"), "Download Maps"],id = "download-button", className = "download-button", n_clicks = 0),
@@ -113,7 +113,7 @@ layout = html.Div(children=[
 
 @app.callback(
     [Output("updates-plasmid_map", "children"),
-    Output("download-button-plasmid_map", "disabled"),
+    Output("download-button-plasmid_map", "className"),
     Output('upload-data-HAs-plasmid_map', 'style'),
     Output('upload-data-insert-plasmid_map', 'style'),
     Output('upload-data-plasmid-backbone-plasmid_map', 'style')],
@@ -127,7 +127,7 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, PB_content
   inputs= {'upload-data-HAs-plasmid_map': (HA_fname,HA_content), 'upload-data-insert-plasmid_map': (INSERT_fname,INSERT_content),'upload-data-plasmid-backbone-plasmid_map':(PB_fname,PB_content)}
   valid_inputs_dict = {}
   output_dict = {}
-  submit_state = True # true mean the button is disabled
+  download_button_class_name = "hidden-download-button"
   updates_message = None  
 
   # validating the input files 
@@ -151,8 +151,8 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, PB_content
   # activate the submit button when all input has been provided 
   if len(valid_inputs_dict) == len(input_ids):
 
-    # controlling the submit file 
-    submit_state = False # activating the submit button 
+    # controlling the appearence and disapearance of the download button 
+    download_button_class_name = "download-button"
 
     # making a folder named based on the current time and a random number in memory to store the transitionary pdfs
     now = datetime.now()
@@ -182,7 +182,7 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, PB_content
     updates_message = DATA_FOLDER_NAME
 
 
-  return updates_message, submit_state, output_dict['upload-data-HAs-plasmid_map'], output_dict['upload-data-insert-plasmid_map'], output_dict['upload-data-plasmid-backbone-plasmid_map']
+  return updates_message, download_button_class_name, output_dict['upload-data-HAs-plasmid_map'], output_dict['upload-data-insert-plasmid_map'], output_dict['upload-data-plasmid-backbone-plasmid_map']
 
 @app.callback(
   [Output('url-plasmid_map', 'pathname'),

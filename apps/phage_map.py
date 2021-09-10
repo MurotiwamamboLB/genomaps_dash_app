@@ -95,7 +95,7 @@ layout = html.Div(children=[
 
   html.Div([
       # the submit button 
-      html.Button([dcc.Download(id="download-component-phage_map"), "Download Maps"], id = "download-button-phage_map", className = "download-button", n_clicks = 0, disabled = 'disabled'),
+      html.Button([dcc.Download(id="download-component-phage_map"), "Download Maps"], id = "download-button-phage_map",  n_clicks = 0),
 
       # the download button 
       # html.Button([dcc.Download(id="download-component"), "Download Maps"],id = "download-button", className = "download-button", n_clicks = 0),
@@ -113,7 +113,7 @@ layout = html.Div(children=[
 
 @app.callback(
     [Output("updates-phage_map", "children"),
-    Output("download-button-phage_map", "disabled"),
+    Output("download-button-phage_map", "className"),
     Output('upload-data-HAs-phage_map', 'style'),
     Output('upload-data-insert-phage_map', 'style'),
     Output('upload-data-phage-phage_map', 'style')],
@@ -127,7 +127,7 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, PHAGE_cont
   inputs= {'upload-data-HAs-phage_map': (HA_fname,HA_content), 'upload-data-insert-phage_map': (INSERT_fname,INSERT_content),'upload-data-phage-phage_map':(PHAGE_fname,PHAGE_content)}
   valid_inputs_dict = {}
   output_dict = {}
-  submit_state = True # true mean the button is disabled
+  download_button_class_name = "hidden-download-button"
   updates_message = None  
 
   # validating the input files 
@@ -151,8 +151,9 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, PHAGE_cont
   # activate the submit button when all input has been provided 
   if len(valid_inputs_dict) == len(input_ids):
 
-    # controlling the submit file 
-    submit_state = False # activating the submit button 
+    # controlling the appearence and disapearance of the download button 
+    download_button_class_name = "download-button"
+
 
     # making a folder named based on the current time and a random number in memory to store the transitionary pdfs
     now = datetime.now()
@@ -182,7 +183,7 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, PHAGE_cont
     updates_message = DATA_FOLDER_NAME
 
 
-  return updates_message, submit_state, output_dict['upload-data-HAs-phage_map'], output_dict['upload-data-insert-phage_map'], output_dict['upload-data-phage-phage_map']
+  return updates_message, download_button_class_name, output_dict['upload-data-HAs-phage_map'], output_dict['upload-data-insert-phage_map'], output_dict['upload-data-phage-phage_map']
 
 @app.callback(
   [Output('url-phage_map', 'pathname'),
