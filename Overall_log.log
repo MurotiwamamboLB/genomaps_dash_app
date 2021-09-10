@@ -1,0 +1,172 @@
+2021-09-10 13:21:09,900:INFO:Dash is running on http://127.0.0.1:8050/
+
+2021-09-10 13:21:29,699:INFO:Dash is running on http://127.0.0.1:8050/
+
+2021-09-10 13:26:47,563:INFO:Dash is running on http://127.0.0.1:8050/
+
+2021-09-10 13:27:28,845:INFO:Dash is running on http://127.0.0.1:8050/
+
+2021-09-10 13:29:10,912:INFO:#########################################################################################################################
+2021-09-10 13:29:10,912:INFO:################################################# PLASMID MAPPING STARTING ##############################################
+2021-09-10 13:29:10,912:INFO:
+
+
+2021-09-10 13:29:10,950:INFO:########### Identified Matching Homology Arms Pairs ###########
+2021-09-10 13:29:10,950:INFO:Site: p6148_ins1, LHA:p6148_ins1_LHA, RHA: p6148_ins1_RHA
+2021-09-10 13:29:10,950:INFO:Site: p6148_ins2, LHA:p6148_ins2_LHA, RHA: p6148_ins2_RHA
+2021-09-10 13:29:10,950:INFO:Site: p6148_ins3, LHA:p6148_ins3_LHA, RHA: p6148_ins3_RHA
+2021-09-10 13:29:10,950:INFO:Site: p6148_ins5, LHA:p6148_ins5_LHA, RHA: p6148_ins5_RHA
+2021-09-10 13:29:10,950:INFO:Site: p6148_ins6, LHA:p6148_ins6_LHA, RHA: p6148_ins6_RHA
+2021-09-10 13:29:10,950:INFO:
+
+2021-09-10 13:29:10,950:INFO:###################### Mapping Attempts #######################
+2021-09-10 13:29:10,954:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins1, Plasmid Map Name: p6148_ins1_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:10,958:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins2, Plasmid Map Name: p6148_ins2_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:10,963:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins3, Plasmid Map Name: p6148_ins3_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:10,966:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins5, Plasmid Map Name: p6148_ins5_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:10,970:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins6, Plasmid Map Name: p6148_ins6_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:10,971:INFO:
+
+
+2021-09-10 13:29:10,971:INFO:############################################## PLASMID MAPPING RUN COMPLETED ############################################
+2021-09-10 13:29:10,971:INFO:#########################################################################################################################
+2021-09-10 13:29:10,971:INFO:
+
+
+2021-09-10 13:29:37,603:INFO:#########################################################################################################################
+2021-09-10 13:29:37,603:INFO:################################################# PLASMID MAPPING STARTING ##############################################
+2021-09-10 13:29:37,603:INFO:
+
+
+2021-09-10 13:29:37,622:INFO:########### Identified Matching Homology Arms Pairs ###########
+2021-09-10 13:29:37,622:INFO:Site: p6148_ins1, LHA:p6148_ins1_LHA, RHA: p6148_ins1_RHA
+2021-09-10 13:29:37,622:INFO:Site: p6148_ins2, LHA:p6148_ins2_LHA, RHA: p6148_ins2_RHA
+2021-09-10 13:29:37,622:INFO:Site: p6148_ins3, LHA:p6148_ins3_LHA, RHA: p6148_ins3_RHA
+2021-09-10 13:29:37,622:INFO:Site: p6148_ins5, LHA:p6148_ins5_LHA, RHA: p6148_ins5_RHA
+2021-09-10 13:29:37,622:INFO:Site: p6148_ins6, LHA:p6148_ins6_LHA, RHA: p6148_ins6_RHA
+2021-09-10 13:29:37,622:INFO:
+
+2021-09-10 13:29:37,622:INFO:###################### Mapping Attempts #######################
+2021-09-10 13:29:37,626:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins1, Plasmid Map Name: p6148_ins1_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:37,629:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins2, Plasmid Map Name: p6148_ins2_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:37,632:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins3, Plasmid Map Name: p6148_ins3_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:37,635:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins5, Plasmid Map Name: p6148_ins5_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:37,637:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins6, Plasmid Map Name: p6148_ins6_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:29:37,638:INFO:
+
+
+2021-09-10 13:29:37,638:INFO:############################################## PLASMID MAPPING RUN COMPLETED ############################################
+2021-09-10 13:29:37,638:INFO:#########################################################################################################################
+2021-09-10 13:29:37,638:INFO:
+
+
+2021-09-10 13:30:03,589:INFO:#########################################################################################################################
+2021-09-10 13:30:03,589:INFO:################################################# PHAGE MAPPING STARTING ################################################
+2021-09-10 13:30:03,589:INFO:
+
+
+2021-09-10 13:30:03,602:INFO:########### Identified Matching Homology Arms Pairs ###########
+2021-09-10 13:30:03,602:INFO:Site: p6148_ins1, LHA:p6148_ins1_LHA, RHA: p6148_ins1_RHA
+2021-09-10 13:30:03,602:INFO:Site: p6148_ins2, LHA:p6148_ins2_LHA, RHA: p6148_ins2_RHA
+2021-09-10 13:30:03,602:INFO:Site: p6148_ins3, LHA:p6148_ins3_LHA, RHA: p6148_ins3_RHA
+2021-09-10 13:30:03,602:INFO:Site: p6148_ins5, LHA:p6148_ins5_LHA, RHA: p6148_ins5_RHA
+2021-09-10 13:30:03,602:INFO:Site: p6148_ins6, LHA:p6148_ins6_LHA, RHA: p6148_ins6_RHA
+2021-09-10 13:30:03,602:INFO:
+
+2021-09-10 13:30:03,602:INFO:###################### Mapping Attempts #######################
+2021-09-10 13:30:03,603:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins1_LHA, RHA: _p6148_ins1_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:03,603:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins2_LHA, RHA: _p6148_ins2_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:03,603:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins3_LHA, RHA: _p6148_ins3_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:03,603:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins5_LHA, RHA: _p6148_ins5_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:03,604:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins6_LHA, RHA: _p6148_ins6_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:03,604:INFO:
+
+
+2021-09-10 13:30:03,604:INFO:############################################## PHAGE MAPPING RUN COMPLETED ##############################################
+2021-09-10 13:30:03,604:INFO:#########################################################################################################################
+2021-09-10 13:30:03,605:INFO:
+
+
+2021-09-10 13:30:16,190:INFO:#########################################################################################################################
+2021-09-10 13:30:16,190:INFO:################################################# PHAGE MAPPING STARTING ################################################
+2021-09-10 13:30:16,190:INFO:
+
+
+2021-09-10 13:30:16,203:INFO:########### Identified Matching Homology Arms Pairs ###########
+2021-09-10 13:30:16,203:INFO:Site: p6148_ins1, LHA:p6148_ins1_LHA, RHA: p6148_ins1_RHA
+2021-09-10 13:30:16,203:INFO:Site: p6148_ins2, LHA:p6148_ins2_LHA, RHA: p6148_ins2_RHA
+2021-09-10 13:30:16,203:INFO:Site: p6148_ins3, LHA:p6148_ins3_LHA, RHA: p6148_ins3_RHA
+2021-09-10 13:30:16,204:INFO:Site: p6148_ins5, LHA:p6148_ins5_LHA, RHA: p6148_ins5_RHA
+2021-09-10 13:30:16,204:INFO:Site: p6148_ins6, LHA:p6148_ins6_LHA, RHA: p6148_ins6_RHA
+2021-09-10 13:30:16,204:INFO:
+
+2021-09-10 13:30:16,204:INFO:###################### Mapping Attempts #######################
+2021-09-10 13:30:16,204:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins1_LHA, RHA: _p6148_ins1_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:16,204:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins2_LHA, RHA: _p6148_ins2_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:16,204:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins3_LHA, RHA: _p6148_ins3_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:16,204:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins5_LHA, RHA: _p6148_ins5_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:16,204:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins6_LHA, RHA: _p6148_ins6_RHA, Phage: p00jc_site6_800bp_Other
+2021-09-10 13:30:16,205:INFO:
+
+
+2021-09-10 13:30:16,205:INFO:############################################## PHAGE MAPPING RUN COMPLETED ##############################################
+2021-09-10 13:30:16,205:INFO:#########################################################################################################################
+2021-09-10 13:30:16,205:INFO:
+
+
+2021-09-10 13:30:38,212:INFO:#########################################################################################################################
+2021-09-10 13:30:38,212:INFO:################################################# PLASMID MAPPING STARTING ##############################################
+2021-09-10 13:30:38,212:INFO:
+
+
+2021-09-10 13:30:38,222:INFO:########### Identified Matching Homology Arms Pairs ###########
+2021-09-10 13:30:38,222:INFO:Site: p6148_ins1, LHA:p6148_ins1_LHA, RHA: p6148_ins1_RHA
+2021-09-10 13:30:38,222:INFO:Site: p6148_ins2, LHA:p6148_ins2_LHA, RHA: p6148_ins2_RHA
+2021-09-10 13:30:38,222:INFO:Site: p6148_ins3, LHA:p6148_ins3_LHA, RHA: p6148_ins3_RHA
+2021-09-10 13:30:38,222:INFO:Site: p6148_ins5, LHA:p6148_ins5_LHA, RHA: p6148_ins5_RHA
+2021-09-10 13:30:38,222:INFO:Site: p6148_ins6, LHA:p6148_ins6_LHA, RHA: p6148_ins6_RHA
+2021-09-10 13:30:38,222:INFO:
+
+2021-09-10 13:30:38,222:INFO:###################### Mapping Attempts #######################
+2021-09-10 13:30:38,225:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins1, Plasmid Map Name: p6148_ins1_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:30:38,227:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins2, Plasmid Map Name: p6148_ins2_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:30:38,230:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins3, Plasmid Map Name: p6148_ins3_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:30:38,232:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins5, Plasmid Map Name: p6148_ins5_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:30:38,236:INFO:****** Successful: Backbone name: p00jc_site6_800bp_Other, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins6, Plasmid Map Name: p6148_ins6_ECIF_BH_payload_with_linker_frags_plamid_map
+2021-09-10 13:30:38,236:INFO:
+
+
+2021-09-10 13:30:38,236:INFO:############################################## PLASMID MAPPING RUN COMPLETED ############################################
+2021-09-10 13:30:38,236:INFO:#########################################################################################################################
+2021-09-10 13:30:38,236:INFO:
+
+
+2021-09-10 13:30:38,237:INFO:#########################################################################################################################
+2021-09-10 13:30:38,237:INFO:################################################# PHAGE MAPPING STARTING ################################################
+2021-09-10 13:30:38,237:INFO:
+
+
+2021-09-10 13:30:38,295:INFO:########### Identified Matching Homology Arms Pairs ###########
+2021-09-10 13:30:38,295:INFO:Site: p6148_ins1, LHA:p6148_ins1_LHA, RHA: p6148_ins1_RHA
+2021-09-10 13:30:38,295:INFO:Site: p6148_ins2, LHA:p6148_ins2_LHA, RHA: p6148_ins2_RHA
+2021-09-10 13:30:38,295:INFO:Site: p6148_ins3, LHA:p6148_ins3_LHA, RHA: p6148_ins3_RHA
+2021-09-10 13:30:38,295:INFO:Site: p6148_ins5, LHA:p6148_ins5_LHA, RHA: p6148_ins5_RHA
+2021-09-10 13:30:38,295:INFO:Site: p6148_ins6, LHA:p6148_ins6_LHA, RHA: p6148_ins6_RHA
+2021-09-10 13:30:38,295:INFO:
+
+2021-09-10 13:30:38,295:INFO:###################### Mapping Attempts #######################
+2021-09-10 13:30:38,297:INFO:****** Failed: Homology Arms Pair Not Found in Phage: LHA: _p6148_ins1_LHA, RHA: _p6148_ins1_RHA, Phage: p006148.004
+2021-09-10 13:30:38,373:INFO:****** Successful: Phage name: p006148.004, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins2, Phage Map Name: p6148_ins2_ECIF_BH_payload_with_linker_frags_phage_map
+2021-09-10 13:30:38,437:INFO:****** Successful: Phage name: p006148.004, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins3, Phage Map Name: p6148_ins3_ECIF_BH_payload_with_linker_frags_phage_map
+2021-09-10 13:30:38,497:INFO:****** Successful: Phage name: p006148.004, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins5, Phage Map Name: p6148_ins5_ECIF_BH_payload_with_linker_frags_phage_map
+2021-09-10 13:30:38,596:INFO:****** Successful: Phage name: p006148.004, Insert name: ECIF_BH_payload_with_linker_frags, Site name: p6148_ins6, Phage Map Name: p6148_ins6_ECIF_BH_payload_with_linker_frags_phage_map
+2021-09-10 13:30:38,597:INFO:
+
+
+2021-09-10 13:30:38,597:INFO:############################################## PHAGE MAPPING RUN COMPLETED ##############################################
+2021-09-10 13:30:38,597:INFO:#########################################################################################################################
+2021-09-10 13:30:38,597:INFO:
+
+
+2021-09-10 13:33:13,764:INFO:Dash is running on http://127.0.0.1:8050/
+

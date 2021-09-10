@@ -24,32 +24,13 @@
 }
 
 .current-link {
-  color: rgb(39, 46, 117);
-  background: rgb(39, 46, 117, 0.2);
+  color: black !important;
+  background: rgb(43,75,111,0.3)!important;
 }
 
-./*header a.logo {
-  font-size: 25px;
-  font-weight: bold;
-  max-width: 250px;
-  padding: 0 10px;
-  overflow: hidden;
-}*/
-
-/*logo img {
-  width: 10%;
-  height: 10%;
-}*/
-
-/*.logo {
-  font-size: 20px;
-  font-weight: bold;
-}*/
-
-
-
+/*
 .header a:hover {
-  background-color: #ddd;
+  background: rgb(39, 46, 117,0.3);
   color: black;
 }
 
@@ -57,7 +38,7 @@
   background-color: #ddd;
   color: black;
 }
-
+*/
 
 
 .menu-bar {
@@ -65,13 +46,13 @@
   float: right;
 }
 .menu-bar a:hover {
-  background-color: #ddd;
+  background-color: rgb(43,75,111,0.3);
   color: black;
 }
 
 .menu-bar a:active {
-  background-color: #ddd;
-  color: black;
+  background-color: rgb(43,75,111);
+  color: white;
 }
 
 
