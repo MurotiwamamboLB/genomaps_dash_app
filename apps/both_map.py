@@ -1,14 +1,9 @@
 import functions
 import base64
-#import datetime
 import io
 import dash
 from dash import dcc
 from dash import html
-# import dash_core_components as dcc
-# import dash_html_components as html
-# import plotly.express as px
-# import pandas as pd
 from app import app
 from dash.dependencies import Input, Output, State
 from random import randint
@@ -104,17 +99,11 @@ layout = html.Div(children=[
   #upload and down load block  stast 
 
   html.Div([
-      # the submit button 
+      # the download button 
       html.Button([dcc.Download(id="download-component-both_maps"), "Download Maps"], id = "download-button-both_maps", n_clicks = 0),# disabled = 'disabled'),
 
-      # the download button 
-      # html.Button([dcc.Download(id="download-component"), "Download Maps"],id = "download-button", className = "download-button", n_clicks = 0),
 
       ], className = "submit-download-block")
-
-  # results block begins 
-  #html.Div(id = "map-results"),
-
 
 ]) 
 
@@ -133,7 +122,7 @@ layout = html.Div(children=[
     Input('upload-data-insert-both_maps', 'contents'),Input('upload-data-insert-both_maps', 'filename'),
     Input('upload-data-plasmid_backbone-both_maps', 'contents'),Input('upload-data-plasmid_backbone-both_maps', 'filename'),
     Input('upload-data-phage-both_maps', 'contents'),Input('upload-data-phage-both_maps', 'filename'),
-    ])
+    ], prevent_initial_call=False)
 def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content, BB_fname, PHAGE_content, PHAGE_fname):
   input_ids = ['upload-data-HAs-both_maps', 'upload-data-insert-both_maps', 'upload-data-plasmid_backbone-both_maps', 'upload-data-phage-both_maps']
 
@@ -182,10 +171,8 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content
       functions.process_uploads(encoded_text, new_gb_file_name) # decoding from base 64 and then converting to g.b file
 
     # generate plasmid and phage maps 
-    #logging.basicConfig(filename = f'./{DATA_FOLDER_NAME}/Mapping_Log.log', level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
     functions.create_plasmid_map(f'./{DATA_FOLDER_NAME}/upload-data-HAs-both_maps.gb', f'./{DATA_FOLDER_NAME}/upload-data-insert-both_maps.gb', f'./{DATA_FOLDER_NAME}/upload-data-plasmid_backbone-both_maps.gb', DATA_FOLDER_NAME)
     functions.create_phage_map(f'./{DATA_FOLDER_NAME}/upload-data-HAs-both_maps.gb', f'./{DATA_FOLDER_NAME}/upload-data-insert-both_maps.gb', f'./{DATA_FOLDER_NAME}/upload-data-phage-both_maps.gb', DATA_FOLDER_NAME)
-    #logging.basicConfig(filename = "Overall_log.log", level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
 
     # generate a zip file 
     functions.write_zip_file(["_plasmid_map.gb", "_phage_map.gb", ".log"],f'./{DATA_FOLDER_NAME}', f'./{DATA_FOLDER_NAME}/plasmid_and_phage_maps.zip')

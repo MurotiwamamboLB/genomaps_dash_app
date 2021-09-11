@@ -11,6 +11,7 @@ import base64
 import io
 import zipfile
 from datetime import datetime
+from apps import both_map
 
 now = datetime.now()
 
@@ -24,10 +25,10 @@ This document describes a program written to assist in the engineering plasmid d
 #def set_log_file_path(OUT_FILE_NAME):
 #    return OUT_FILE_NAME
 
-logging.basicConfig(filename = "Overall_log.log", level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
+logging.basicConfig(level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
 
-# def set_log_file_path(OUT_FILE_NAME):
-#     return logging.basicConfig(filename = OUT_FILE_NAME, level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
+def set_log_file_path(OUT_FILE_NAME):
+    return logging.basicConfig(filename = OUT_FILE_NAME, level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
 
 
 
@@ -395,7 +396,7 @@ def find_HA_pairs(genbank_file_with_HAs):
     LHAs_dict = HAs_list[0]
     RHAs_dict = HAs_list[1]
 
-    logging.info("########### Identified Matching Homology Arms Pairs ###########")
+    logging.info("**************************************** Identified Matching Homology Arms Pairs ****************************************")
 
     
     # make a dummy RHA list using the LHA to compare with the real RHA_list above to find LHA with a pairing RHA.
@@ -471,10 +472,26 @@ def create_plasmid_map(HAs_genbank_file,INSERT_genbank_file, BACKBONE_genbank_fi
     An annotated SeqRecord object with an insert integrated into the backbone SeqRecord objects. 
     """
 
-    # logging.basicConfig(filename = f'./{OUT_FOLDER_NAME}/Plasmid_Mapping_Log.log', level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
+
+    # the logger is global, thus here we are setting up a local handler that will be made each run, it will have the root's configs set above
+    plasmid_mapping_log_handler = logging.FileHandler(f'./{OUT_FOLDER_NAME}/Plasmid_Mapping_Log.log', 'a')
+
+    # adding some formatting preferences 
+    formatter = logging.Formatter('%(asctime)s:%(message)s')
+    plasmid_mapping_log_handler.setFormatter(formatter)
+
+    # removing all other handlers just in case 
+    log = logging.getLogger()  # root logger
+    for hdlr in log.handlers[:]:  # remove all old handlers
+        log.removeHandler(hdlr)
+
+    # adding the current logger configured to put data in the suggested log file
+    log.addHandler(plasmid_mapping_log_handler) 
+
 
     logging.info("#########################################################################################################################")
     logging.info("################################################# PLASMID MAPPING STARTING ##############################################")
+
     logging.info("\n\n")
 
     # a list of all maps created 
@@ -491,7 +508,8 @@ def create_plasmid_map(HAs_genbank_file,INSERT_genbank_file, BACKBONE_genbank_fi
                 HAs_dict = find_HA_pairs(HAs_genbank_file)
 
                 logging.info("\n")
-                logging.info("###################### Mapping Attempts #######################")
+                logging.info("************************************************** Mapping Attempts *****************************************************")
+
                 
                 # logging the HAs present
                 # logging.info("Engineering sites with both Homology Arms present and properly named: \n\n".format(HAs_dict))
@@ -533,10 +551,8 @@ def create_plasmid_map(HAs_genbank_file,INSERT_genbank_file, BACKBONE_genbank_fi
     logging.info("\n\n")
     logging.info("############################################## PLASMID MAPPING RUN COMPLETED ############################################")
     logging.info("#########################################################################################################################")
-    logging.info("\n\n")
-    
-    #logging.shutdown()
 
+    plasmid_mapping_log_handler.close() # clossing the handler to avoid problems with trying to delete open files. 
     
     return None
 
@@ -554,8 +570,20 @@ def create_phage_map(HAs_genbank_file,INSERT_genbank_file, PHAGE_genbank_file, O
     Returns:
     An annotated SeqRecord object with an insert integrated into the backbone SeqRecord objects. 
     """
-    logging.basicConfig(filename = f'./{OUT_FOLDER_NAME}/Phage_Mapping_Log.log', level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
+    # the logger is global, thus here we are setting up a local handler that will be made each run, it will have the root's configs set above
+    phage_mapping_log_handler = logging.FileHandler(f'./{OUT_FOLDER_NAME}/Phage_Mapping_Log.log', 'a')
 
+    # adding some formatting preferences 
+    formatter = logging.Formatter('%(asctime)s:%(message)s')
+    phage_mapping_log_handler.setFormatter(formatter)
+
+    # removing all other handlers just in case 
+    log = logging.getLogger()  # root logger
+    for hdlr in log.handlers[:]:  # remove all old handlers
+        log.removeHandler(hdlr)
+
+    # adding the current logger configured to put data in the suggested log file
+    log.addHandler(phage_mapping_log_handler)
     logging.info("#########################################################################################################################")
     logging.info("################################################# PHAGE MAPPING STARTING ################################################")
     logging.info("\n\n")
@@ -586,7 +614,7 @@ def create_phage_map(HAs_genbank_file,INSERT_genbank_file, PHAGE_genbank_file, O
             HAs_dict = find_HA_pairs(HAs_genbank_file)
 
             logging.info("\n")
-            logging.info("###################### Mapping Attempts #######################")
+            logging.info("************************************************** Mapping Attempts *****************************************************")
 
 
             # iterating through the sites provided to produce several plasmid maps
@@ -677,8 +705,7 @@ def create_phage_map(HAs_genbank_file,INSERT_genbank_file, PHAGE_genbank_file, O
     logging.info("#########################################################################################################################")
     logging.info("\n\n")
     
-    logging.shutdown()
-
+    phage_mapping_log_handler.close()
     
     return None
 ##################################################################################################################################################
