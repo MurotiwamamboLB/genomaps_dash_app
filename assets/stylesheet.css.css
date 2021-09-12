@@ -204,15 +204,15 @@ body-block {
 
 }
 
-.submit-button:disabled, .download-button:disabled{
+/*.submit-button:disabled, .download-button:disabled{
   background-color: #ddd;
   color: black;
 
-}
+}*/
 
 
 
-.download-button{
+.download-button, .generate-button{
   width: 250px;
   height: 60px;
   /*line-height: 60px;*/
@@ -230,18 +230,26 @@ body-block {
 
 }
 
-.download-button:hover{
+.download-button:hover , .generate-button:hover{
   background-color: rgb(43,75,111,0.3);
   color: black;
 }
-.download-button:active, .download-button:focus{
+.download-button:active, .download-button:focus, .generate-button:active, .generate-button:focus{
   background-color: rgb(43,75,111);
   color: white;
 }
 
 
-.hidden-download-button{
+.hidden-download-button, .hidden-generate-button{
   display: None;
+}
+
+.spinner{
+
+  width: 40px;
+  height: 1px;
+  color: rgb(43,75,111);
+ 
 }
 
 /*########### download button ends #################

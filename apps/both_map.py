@@ -9,7 +9,7 @@ from dash.dependencies import Input, Output, State
 from random import randint
 from datetime import datetime
 import os
-import logging 
+import simplejson as json
 
 
 
@@ -49,7 +49,8 @@ layout = html.Div(children=[
 
         dcc.Upload(
         id='upload-data-HAs-both_maps',
-        children=html.Div([html.A('SELECT'),' or Drag and Drop :', " The HOMOLOGY ARMS GenBank File"
+        children=html.Div([html.A('SELECT'),' or Drag and Drop :', " The HOMOLOGY ARMS GenBank File",
+          
         ]),
         multiple = False,
         className = "upload"),
@@ -96,11 +97,16 @@ layout = html.Div(children=[
 
   ], className = "upload-block"),
 
-  #upload and down load block  stast 
+  #upload and down load block  starts
 
   html.Div([
       # the download button 
-      html.Button([dcc.Download(id="download-component-both_maps"), "Download Maps"], id = "download-button-both_maps", n_clicks = 0),# disabled = 'disabled'),
+
+      dcc.Loading(id="spinner-phage-both_maps",type="dot", color="rgb(43,75,111)",className = "spinner",
+          children=html.Div(
+            html.Button([dcc.Download(id="download-component-both_maps"), "Download Maps"], id = "download-button-both_maps", n_clicks = 0),
+          )),
+
 
 
       ], className = "submit-download-block")
@@ -108,7 +114,6 @@ layout = html.Div(children=[
 ]) 
 
 
-#################uploads manual and validation checks######################
 
 
 @app.callback(
@@ -123,13 +128,14 @@ layout = html.Div(children=[
     Input('upload-data-plasmid_backbone-both_maps', 'contents'),Input('upload-data-plasmid_backbone-both_maps', 'filename'),
     Input('upload-data-phage-both_maps', 'contents'),Input('upload-data-phage-both_maps', 'filename'),
     ], prevent_initial_call=False)
-def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content, BB_fname, PHAGE_content, PHAGE_fname):
+def process_input(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content, BB_fname, PHAGE_content, PHAGE_fname):
   input_ids = ['upload-data-HAs-both_maps', 'upload-data-insert-both_maps', 'upload-data-plasmid_backbone-both_maps', 'upload-data-phage-both_maps']
 
   inputs= {'upload-data-HAs-both_maps': (HA_fname,HA_content), 'upload-data-insert-both_maps': (INSERT_fname,INSERT_content), 'upload-data-plasmid_backbone-both_maps':(BB_fname,BB_content), 'upload-data-phage-both_maps':(PHAGE_fname,PHAGE_content)}
   valid_inputs_dict = {}
   output_dict = {}
   download_button_class_name = "hidden-download-button"
+  #generate_button_class_name = "hidden-generate-button"
   #submit_state = True # true mean the button is disabled
   updates_message = None  
 
@@ -155,7 +161,32 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content
   if len(valid_inputs_dict) == len(input_ids):
 
     # controlling the appearence and disapearance of the download button 
+    #generate_button_class_name = "generate-button"
     download_button_class_name = "download-button"
+
+    
+    updates_message = json.dumps(valid_inputs_dict)
+
+
+  return updates_message, download_button_class_name, output_dict['upload-data-HAs-both_maps'], output_dict['upload-data-insert-both_maps'], output_dict['upload-data-plasmid_backbone-both_maps'], output_dict['upload-data-phage-both_maps']
+
+
+
+
+@app.callback(
+  [Output('url-both_maps', 'pathname'),
+  Output("download-component-both_maps", "data")],
+  Input("download-button-both_maps", "n_clicks"),
+  State("updates-both_maps", "children"),
+  prevent_initial_call=True)
+def download_maps(n, DATA_FOLDER_NAME):
+
+  # preventing intial call backs not working so im preventing updates if Data folder is not yet created.
+  if DATA_FOLDER_NAME == None:
+        raise dash.exceptions.PreventUpdate
+
+  else:
+    valid_inputs_dict = json.loads(DATA_FOLDER_NAME)
 
     # making a folder named based on the current time and a random number in memory to store the transitionary pdfs
     now = datetime.now()
@@ -177,24 +208,7 @@ def generate_maps(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content
     # generate a zip file 
     functions.write_zip_file(["_plasmid_map.gb", "_phage_map.gb", ".log"],f'./{DATA_FOLDER_NAME}', f'./{DATA_FOLDER_NAME}/plasmid_and_phage_maps.zip')
 
-    updates_message = DATA_FOLDER_NAME
 
-
-  return updates_message, download_button_class_name, output_dict['upload-data-HAs-both_maps'], output_dict['upload-data-insert-both_maps'], output_dict['upload-data-plasmid_backbone-both_maps'], output_dict['upload-data-phage-both_maps']
-
-@app.callback(
-  [Output('url-both_maps', 'pathname'),
-  Output("download-component-both_maps", "data")],
-  Input("download-button-both_maps", "n_clicks"),
-  State("updates-both_maps", "children"),
-  prevent_initial_call=True)
-def download_maps(n, DATA_FOLDER_NAME):
-
-  # preventing intial call backs not working so im preventing updates if Data folder is not yet created.
-  if DATA_FOLDER_NAME == None:
-        raise dash.exceptions.PreventUpdate
-
-  else:
     final = dcc.send_file(f'./{DATA_FOLDER_NAME}/plasmid_and_phage_maps.zip') # downloading a zip file 
     pathname = '/apps/both_map' # redirecting to an unfilled both maps page to mimic reloading the page
     os.system(f"rd /s /q {DATA_FOLDER_NAME}") # deleting the file from the system
