@@ -18,7 +18,6 @@ app.layout = html.Div([
     html.Div(children = [
 
         # logo block starts 
-
         html.Img(src="assets/logo_1.png", className = "logo"),
 
 
