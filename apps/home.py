@@ -5,7 +5,6 @@ from app import app
 
 
 layout = html.Div(children=[
-
 	
    # body block starts
 
@@ -19,7 +18,6 @@ layout = html.Div(children=[
     ], className = "body-text"),
 
    # body block ends
-
 
 ])
 

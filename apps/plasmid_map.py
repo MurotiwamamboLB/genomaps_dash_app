@@ -16,11 +16,10 @@ import simplejson as json
 
 layout = html.Div(children=[
 
-   # instructions block starts
+  # instructions block starts
 
   html.Div(children=[
 
-    # logo
     html.Div([
       html.P(children = "GENO-MAPS Instructions")], className="instructions-header"),
 
@@ -42,15 +41,13 @@ layout = html.Div(children=[
       ],className = "body-block"),
       
 
-    # instructions block ends
+  # instructions block ends
+
+  #upload-block starts
 
   html.Div([html.P(children = "Upload Your GenBank INPUT files")],className="instructions-header"),
-
-
-  #   # body block ends
   
-    #upload-block starts
-
+  
     html.Div([
 
    
@@ -58,7 +55,7 @@ layout = html.Div(children=[
         # upload HAs
 
         dcc.Upload(
-        id='upload-data-HAs-plasmid_map',
+        id='upload-data-HAs-plasmid_maps',
         children=html.Div([html.A('SELECT'),' or Drag and Drop :', " The HOMOLOGY ARMS GenBank File",
           
         ]),
@@ -69,7 +66,7 @@ layout = html.Div(children=[
         # upload Insert
 
         dcc.Upload(
-        id='upload-data-insert-plasmid_map',
+        id='upload-data-insert-plasmid_maps',
         children=html.Div([html.A('SELECT'),' or Drag and Drop :', " The INSERT GenBank File"
         ]),
         multiple = False,
@@ -78,63 +75,59 @@ layout = html.Div(children=[
         # upload plasmid backbone
 
         dcc.Upload(
-        id='upload-data-plasmid_backbone-plasmid_map',
+        id='upload-data-plasmid_backbone-plasmid_maps',
         children=html.Div([html.A('SELECT'),' or Drag and Drop :', " The PLASMID BACKBONE GenBank File"
         ]),
         multiple = False,
         className = "upload"),
 
-        
+
         # updates - simple hidden elements to help when i need functions that dont neccessarily have required output
-        html.Div(id = "updates-plasmid_map", className = "updates",hidden ='HIDDEN'),
-        html.Div(id = "reset-plasmid_map", className = "updates", hidden ='HIDDEN'),
-
-
-        #html.Button([dcc.Download(id="download-component")],id = "download-button", className = "submit-button", n_clicks = 0),
+        html.Div(id = "updates-plasmid_maps", className = "updates",hidden ='HIDDEN'),
+        html.Div(id = "reset-plasmid_maps", className = "updates", hidden ='HIDDEN'),
         
         ]),
       
 
   ], className = "upload-block"),
 
-  #upload and down load block  starts
+  #upload-block  ends
 
   html.Div([
       # the download button 
-
-      dcc.Loading(id="spinner-phage-plasmid_map",type="dot", color="rgb(43,75,111)",className = "spinner",
+      dcc.Loading(id="spinner-phage-plasmid_maps",type="dot", color="rgb(43,75,111)",className = "spinner",
           children=html.Div(
-            html.Button([dcc.Download(id="download-component-plasmid_map"), "Download Maps"], id = "download-button-plasmid_map", n_clicks = 0),
+            html.Button([dcc.Download(id="download-component-plasmid_maps"), "Download Maps"], id = "download-button-plasmid_maps", n_clicks = 0),
           )),
-
-
 
       ], className = "submit-download-block")
 
 ]) 
 
 
-
+############################################### CALL BACKS BEGIN #################################################
 
 @app.callback(
-    [Output("updates-plasmid_map", "children"),
-    Output("download-button-plasmid_map", "className"),
-    Output('upload-data-HAs-plasmid_map', 'style'),
-    Output('upload-data-insert-plasmid_map', 'style'),
-    Output('upload-data-plasmid_backbone-plasmid_map', 'style')],
-    [Input('upload-data-HAs-plasmid_map', 'contents'),Input('upload-data-HAs-plasmid_map', 'filename'),
-    Input('upload-data-insert-plasmid_map', 'contents'),Input('upload-data-insert-plasmid_map', 'filename'),
-    Input('upload-data-plasmid_backbone-plasmid_map', 'contents'),Input('upload-data-plasmid_backbone-plasmid_map', 'filename'),
+    [Output("updates-plasmid_maps", "children"),
+    Output("download-button-plasmid_maps", "className"),
+    Output('upload-data-HAs-plasmid_maps', 'style'),
+    Output('upload-data-insert-plasmid_maps', 'style'),
+    Output('upload-data-plasmid_backbone-plasmid_maps', 'style')],
+    [Input('upload-data-HAs-plasmid_maps', 'contents'),Input('upload-data-HAs-plasmid_maps', 'filename'),
+    Input('upload-data-insert-plasmid_maps', 'contents'),Input('upload-data-insert-plasmid_maps', 'filename'),
+    Input('upload-data-plasmid_backbone-plasmid_maps', 'contents'),Input('upload-data-plasmid_backbone-plasmid_maps', 'filename'),
     ], prevent_initial_call=False)
 def process_input(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content, BB_fname):
-  input_ids = ['upload-data-HAs-plasmid_map', 'upload-data-insert-plasmid_map', 'upload-data-plasmid_backbone-plasmid_map']
+  """
+  Processes the input GenBank files and provide contents as dict thrugh the updates component. 
 
-  inputs= {'upload-data-HAs-plasmid_map': (HA_fname,HA_content), 'upload-data-insert-plasmid_map': (INSERT_fname,INSERT_content), 'upload-data-plasmid_backbone-plasmid_map':(BB_fname,BB_content)}
+  """
+  input_ids = ['upload-data-HAs-plasmid_maps', 'upload-data-insert-plasmid_maps', 'upload-data-plasmid_backbone-plasmid_maps']
+
+  inputs= {'upload-data-HAs-plasmid_maps': (HA_fname,HA_content), 'upload-data-insert-plasmid_maps': (INSERT_fname,INSERT_content), 'upload-data-plasmid_backbone-plasmid_maps':(BB_fname,BB_content)}
   valid_inputs_dict = {}
   output_dict = {}
   download_button_class_name = "hidden-download-button"
-  #generate_button_class_name = "hidden-generate-button"
-  #submit_state = True # true mean the button is disabled
   updates_message = None  
 
   # validating the input files 
@@ -144,9 +137,6 @@ def process_input(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content
     content = v[1]
     if content is not None and f_name.lower().endswith(".gb") == True:
       valid_inputs_dict[input_label] = {"filecontent":f_name,"filecontent":content}
-      # current_dict["filecontent"] = content
-      # input_data_content[input_id] = current_dict
-      #return {"backgroundColor": "rgb(140,198,141)"}
       output_dict[input_label] = {"backgroundColor": "rgb(140,198,141)"}
 
     elif content is not None and f_name.lower().endswith(".gb") == False:
@@ -159,25 +149,28 @@ def process_input(HA_content, HA_fname, INSERT_content, INSERT_fname, BB_content
   if len(valid_inputs_dict) == len(input_ids):
 
     # controlling the appearence and disapearance of the download button 
-    #generate_button_class_name = "generate-button"
     download_button_class_name = "download-button"
 
-    
+    # updating the updates component with a dict of valid input
     updates_message = json.dumps(valid_inputs_dict)
 
 
-  return updates_message, download_button_class_name, output_dict['upload-data-HAs-plasmid_map'], output_dict['upload-data-insert-plasmid_map'], output_dict['upload-data-plasmid_backbone-plasmid_map']
+  return updates_message, download_button_class_name, output_dict['upload-data-HAs-plasmid_maps'], output_dict['upload-data-insert-plasmid_maps'], output_dict['upload-data-plasmid_backbone-plasmid_maps']
 
 
 
 
 @app.callback(
   [Output('url-plasmid_map', 'pathname'),
-  Output("download-component-plasmid_map", "data")],
-  Input("download-button-plasmid_map", "n_clicks"),
-  State("updates-plasmid_map", "children"),
+  Output("download-component-plasmid_maps", "data")],
+  Input("download-button-plasmid_maps", "n_clicks"),
+  State("updates-plasmid_maps", "children"),
   prevent_initial_call=True)
 def download_maps(n, DATA_FOLDER_NAME):
+  """
+  Accepts as input the dict file in the updates component. Generates maps, downloads them and reset the form. 
+
+  """
 
   # preventing intial call backs not working so im preventing updates if Data folder is not yet created.
   if DATA_FOLDER_NAME == None:
@@ -200,7 +193,7 @@ def download_maps(n, DATA_FOLDER_NAME):
       functions.process_uploads(encoded_text, new_gb_file_name) # decoding from base 64 and then converting to g.b file
 
     # generate plasmid maps 
-    functions.create_plasmid_map(f'./{DATA_FOLDER_NAME}/upload-data-HAs-plasmid_map.gb', f'./{DATA_FOLDER_NAME}/upload-data-insert-plasmid_map.gb', f'./{DATA_FOLDER_NAME}/upload-data-plasmid_backbone-plasmid_map.gb', DATA_FOLDER_NAME)
+    functions.create_plasmid_map(f'./{DATA_FOLDER_NAME}/upload-data-HAs-plasmid_maps.gb', f'./{DATA_FOLDER_NAME}/upload-data-insert-plasmid_maps.gb', f'./{DATA_FOLDER_NAME}/upload-data-plasmid_backbone-plasmid_maps.gb', DATA_FOLDER_NAME)
 
     # generate a zip file 
     functions.write_zip_file(["_plasmid_map.gb", ".log"],f'./{DATA_FOLDER_NAME}', f'./{DATA_FOLDER_NAME}/plasmid_maps.zip')

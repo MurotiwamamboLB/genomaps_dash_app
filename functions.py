@@ -22,14 +22,7 @@ This document describes a program written to assist in the engineering plasmid d
 
 # setting up logging 
 
-#def set_log_file_path(OUT_FILE_NAME):
-#    return OUT_FILE_NAME
-
 logging.basicConfig(level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
-
-def set_log_file_path(OUT_FILE_NAME):
-    return logging.basicConfig(filename = OUT_FILE_NAME, level = logging.DEBUG, format = '%(asctime)s:%(levelname)s:%(message)s')
-
 
 
 ###################### functions for handing the encoding made by dash ########
@@ -597,9 +590,6 @@ def create_phage_map(HAs_genbank_file,INSERT_genbank_file, PHAGE_genbank_file, O
             # setting variables 
             INSERT = backbone_record
             BACKBONE = insert_record
-            # setting variables 
-            # INSERT = read_genbank(INSERT_genbank_file)
-            # BACKBONE = read_genbank(PHAGE_genbank_file)
     
             # making a fully annotated reverse backbone record just incase the HAs are provided the other way round
             BACKBONE_REVERSE = BACKBONE.reverse_complement(id=True, 
@@ -680,7 +670,6 @@ def create_phage_map(HAs_genbank_file,INSERT_genbank_file, PHAGE_genbank_file, O
                     
                 
                     # writing out a genbank file 
-                    # OUT_FILE_NAME = f"./{OUT_FOLDER_NAME}/{site_name}_{INSERT.id}_phage_map.gb"
                     OUT_FILE_NAME = f"./{OUT_FOLDER_NAME}/{site_name}_{INSERT.name}_phage_map.gb"
                     write_genbank_file(annotated_record = PHAGE_MAP, out_file_name=OUT_FILE_NAME)
                     # logging the creating of a plasmid map for each site

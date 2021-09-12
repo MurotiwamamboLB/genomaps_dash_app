@@ -1,32 +1,16 @@
-
-# visit http://127.0.0.1:8050/ in your web browser.
-
-
 import dash
 from dash import dcc
 from dash import html
-#import dash_core_components as dcc
-#import dash_html_components as html
-# import plotly.express as px
-# import pandas as pd
 from dash.dependencies import Input, Output
 
 # Connect to main app.py file
 from app import app
 from app import server
 
-# Connect to your app pages
+# Connect to app pages
 from apps import home,plasmid_map, phage_map, both_map
 
-#app = dash.Dash(__name__)
 
-colors = {
-    "background": "#2B4B6F"
-
-    }
-
-
-#
 app.layout = html.Div([
 
     # header block starts
@@ -37,11 +21,6 @@ app.layout = html.Div([
 
         html.Img(src="assets/logo_1.png", className = "logo"),
 
-        #html.H1("THE LOCUS GENOMIC MAP GENERATOR", id = "program-title"),
-
-        # buttons block starts
-
-        
 
         # menu bar begins
         dcc.Location(id='url', refresh=False),
@@ -58,7 +37,7 @@ app.layout = html.Div([
         # menu bar ends 
 
     ], className = "header"),
-    # # header block ends 
+    # header block ends 
 
     # body block starts 
     html.Div(id='page-content')
