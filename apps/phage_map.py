@@ -16,28 +16,39 @@ import simplejson as json
 
 layout = html.Div(children=[
 
-   # body block starts
+    # instructions block starts
 
   html.Div(children=[
 
     # logo
     html.Div([
       html.P(children = "GENO-MAPS Instructions")], className="instructions-header"),
+
     html.Div([
 
-      html.P("Please note that we can only support the GenBank file format at this time. Make sure that all your files are GenBank files before submiting."),
-      html.P("Your results will be provided as GenBank files that can be imported and exported to Benching and Genius."),
-      html.P("We also preserve all your annotations. "),
-      ], className = "instructions"),
+      html.Ul([
+
+        html.Li([ "Make sure that all your input files are GenBank files before submiting. Note that you can make GenBank files from Benchling or Genius."]),
+        html.Li([ "When making the Homology Arms GenBank file, ensure that the 'feature' is set to 'Homology_arm'."]),
+        html.Li([ "For each Homology Arms Pair, ensure that they are named according to the following format: phageName_siteName_(LHA or RHA)"]),
+        html.Li([ "When none-GenBank files are provided, the field will turn red. When valid input is provided the field will turn green."]),
+        html.Li([ "When all input files are provided and valid, a 'DOWNLOAD MAPS' button will appear." ]),
+        html.Li([ "When you click the 'DOWNLOAD MAPS' button, your maps will be downloaded as a zip file and the input fields will reset." ]),
+        html.Li([ "The downloaded zip file contains each map as a GenBank file and a log file with information about the mapping run." ]),
+        html.Li([ "Check the log file to find successful and failed mapping attempts." ]),
+
+        ], className = "instructions"),
+      ]),
       ],className = "body-block"),
       
 
-    # body block ends
+    # instructions block ends
 
   html.Div([html.P(children = "Upload Your GenBank INPUT files")],className="instructions-header"),
 
 
   #   # body block ends
+  
   
     #upload-block starts
 

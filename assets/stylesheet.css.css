@@ -70,8 +70,9 @@
 
 .body-text{
   text-align: center;
-  color: rgb(39, 46, 117);
-  background: rgb(39, 46, 117, 0.2);
+  color: rgbrgb(43,75,111);
+  background-color: rgb(43,75,111,0.3);
+  /*background: rgb(39, 46, 117, 0.2);*/
   border-radius: 5px;
   margin-top: 8%;
   font-size: 15px;
@@ -112,7 +113,7 @@
 }
 
 
-
+/*
 h1 {
   padding-left: 10%;
 }
@@ -120,7 +121,7 @@ h1 {
 h2 {
   text-align: center;
   size: 10%;
-}
+}*/
 
 /*p {
   text-align: center;
