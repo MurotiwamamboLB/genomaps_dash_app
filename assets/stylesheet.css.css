@@ -186,7 +186,7 @@ body-block {
 
 }
 
-.download-button, .generate-button{
+.download-button{
   width: 250px;
   height: 60px;
   border-width: 1px;
@@ -202,17 +202,17 @@ body-block {
 
 }
 
-.download-button:hover , .generate-button:hover{
+.download-button:hover {
   background-color: rgb(43,75,111,0.3);
   color: black;
 }
-.download-button:active, .download-button:focus, .generate-button:active, .generate-button:focus{
+.download-button:active, .download-button:focus {
   background-color: rgb(43,75,111);
   color: white;
 }
 
 
-.hidden-download-button, .hidden-generate-button{
+.hidden-download-button{
   display: None;
 }
 
