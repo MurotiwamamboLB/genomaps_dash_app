@@ -29,7 +29,8 @@ layout = html.Div(children=[
 
         html.Li(["All your input files must be in the GenBank format. Note that you can make GenBank files in Benchling or Genius."]),
         html.Li([ "When making the Homology Arms GenBank files, ensure that the 'feature' attribute is set to 'Homology_arm'."]),
-        html.Li([ "Ensure that each Homology Arm pair is named uniformely using the following format: phageName_siteName_(LHA or RHA)"]),
+        html.Li([ "Ensure that each Homology Arm pair is named uniformly using the following format: phageName_siteName_(LHA or RHA)"]),
+        html.Li([ "Ensure that your insert GenBank records also contain linker fragments if any."]),
         html.Li([ "When none-GenBank files are provided, the field will turn red indicating that your input file was not accepted."]),
         html.Li([ "When valid GenBank files are provided, the field will turn green indicating that your file was accepted."]),
         html.Li([ "When all input files are provided and valid, a 'DOWNLOAD MAPS' button will appear at the bottom of the page." ]),
