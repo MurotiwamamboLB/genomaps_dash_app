@@ -19,6 +19,7 @@
   overflow: hidden;
   background-color: white;
   padding: 20px 10px;
+  margin-bottom: 80px;
 }
 
 .header a {
@@ -43,6 +44,10 @@
   
   .header-right {
     float: none;
+  }
+
+  .header{
+      margin-bottom: 20px;
   }
 }
 
@@ -161,7 +166,7 @@ body-block {
   border-radius: 5px;
   text-align: center;
   margin: 10px;
-  margin-top: 50px;
+  /*margin-top: 50px;*/
   padding: 1px;
 }
 
